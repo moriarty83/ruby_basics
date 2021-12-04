@@ -175,3 +175,64 @@ book = {
 #############################
 ## Methods With a Hash
 #############################
+
+## EULER
+# 1.
+def euler num
+    Array(1..num).sum
+end
+
+puts euler 3
+
+# 2. 
+require 'prime'
+def check_prime num
+    Prime.prime?(num)
+end
+
+puts check_prime 13
+
+def get_primes num
+    primes = []
+    Prime.each(num) do |prime| primes.push(prime) end
+    primes
+end
+
+puts get_primes 10
+
+# 3
+get_primes(10).each{|prime| puts check_prime(prime)}
+
+
+#############################
+## Hungry for More
+#############################
+
+# Pandigital
+def pandigital(num)
+    puts "num.digits = #{num.digits}"
+    ## If all numbers are not unique, return false.
+    if num.digits.length != num.digits.uniq.length
+        return false
+    end
+
+    for i in 1..num.digits.length
+        p "i = " + i.to_s
+        if num.digits.count(i) != 1 
+            return false
+        end
+    end
+    return true
+end
+
+p "Running Pandigital"
+p pandigital 12347865
+
+# Word Frequency
+dickens = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way--in short, the period was so far like the present period that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only."
+
+def word_freq(words)
+    p words.split(" ")
+end
+
+word_freq(dickens)
